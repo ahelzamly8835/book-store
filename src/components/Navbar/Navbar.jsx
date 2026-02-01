@@ -15,7 +15,7 @@ export default function Navbar() {
             }}
         >
             
-            <div className="absolute inset-0 bg-[#00000041]"></div>
+            <div className="absolute inset-0 bg-[#0000007e]"></div>
 
             
             <div className="relative  bg-[#FFFFFF33] flex items-center justify-center py-5">
