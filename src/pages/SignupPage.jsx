@@ -8,7 +8,7 @@ import Footer from '../components/ui/Footer';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignupSchema = Yup.object({
   username: Yup.string()
@@ -50,7 +50,7 @@ const SignupPage = () => {
       };
   
       await axios.post(
-        "http://localhost:1337/api/auth/local/register",
+        "https://bookstore.eraasoft.pro/api/register",
         data
       );
   
@@ -116,7 +116,7 @@ const SignupPage = () => {
           </button>
           
           <div className="log-in flex flex-col mx-auto mt-8">
-            <p className='text-center'>Already have an account? <span className='text-mainColor cursor-pointer'>Login</span></p>
+            <p className='text-center'>Already have an account? <Link to="/login" className='text-mainColor cursor-pointer'>Login</Link></p>
             <span className='mx-auto mt-6 md:mt-10 text-[#00000080]'>or</span>
           </div>
           

@@ -14,7 +14,7 @@ const LoginPage = () => {
   const handleLogin = async (values)=> {
     console.log(values);
     try{
-        const res = await axios.post("http://localhost:5173/api/auth/local", values);
+        const res = await axios.post("https://bookstore.eraasoft.pro/api/login", values);
         console.log(res);
     } catch (error) { 
       console.log(error);
@@ -68,7 +68,7 @@ const LoginPage = () => {
 
           
           <div className="log-in flex flex-col mx-auto mt-8">
-            <p className='text-center'>Don’t have an account? <span className='text-mainColor cursor-pointer'>Signup</span></p>
+            <p className='text-center'>Don’t have an account? <Link to="/signup" className='text-mainColor cursor-pointer'>Signup</Link></p>
             <span className='mx-auto mt-6 md:mt-10 text-[#00000080]'>or</span>
           </div>
           
