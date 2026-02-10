@@ -1,5 +1,5 @@
-import NavbarLogo from './NavbarLogo';
 import LinkItem from '../ui/LinkItem';
+import NavbarLogo from './NavbarLogo';
 import Button from '../ui/Button';
 import BackgroundImage from '../../assets/images/533643aa8db82414f48d43a992d009dda3961386.png';
 import { Link } from 'react-router-dom';

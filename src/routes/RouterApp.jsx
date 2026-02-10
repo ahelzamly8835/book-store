@@ -4,13 +4,15 @@ import SignupPage from "../pages/SignupPage";
 import AddCodePage from "../pages/AddCodePage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import ForgetPasswordPage from "../pages/ForgetPasswordPage";
-import HomePage from "../pages/HomePage";
+import HomeBefore from "../pages/HomeBefore";
+import HomeAfter from "../pages/HomeAfter";
 
 export default function RouterApp() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<HomeBefore />} />
+                <Route path="/" element={<HomeAfter />} />
 
                 {/* Auth Pages */}
                 <Route path="login" element={<LoginPage />} />

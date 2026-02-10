@@ -56,7 +56,7 @@ const LoginPage = () => {
               <p>Remember me</p>
             </div>
             <div className="Forget flex">
-              <Link to="/forgetPassword"><p className='text-mainColor cursor-pointer'>Forget password?</p></Link>
+              <Link to="/forget-password"><p className='text-mainColor cursor-pointer'>Forget password?</p></Link>
             </div>
           </div>
           <button type='submit' className="btn cursor-pointer bg-mainColor flex justify-center items-center mt-8 rounded-lg py-2.5 text-white font-bold transition-opacity hover:opacity-90">
