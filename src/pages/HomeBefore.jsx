@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar'
-import SearchBar from './SearchBar'
+import Footer from '../components/ui/Footer'
 import Header from './Header'
 import Service from './service'
 import BestSeller from './BestSeller'
 import Recomended from './Recomended'
+import FlashSale from './FlashSale'
 
 const HomeBefore = () => {
   return (
@@ -13,6 +13,8 @@ const HomeBefore = () => {
       <Service/>
       <BestSeller/>
       <Recomended/>
+      <FlashSale/>
+      <Footer/>
     </div>
   )
 }
