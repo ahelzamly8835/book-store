@@ -17,14 +17,14 @@ export default function Navbar() {
             
             <div className="absolute inset-0 bg-[#0000007e]"></div>
 
-            
             <div className="relative  bg-[#FFFFFF33] flex items-center justify-center py-5">
                 <NavbarLogo />
                 <div className="nav-links flex items-center gap-10 ">
                     <LinkItem to={"/"}>home</LinkItem>
-                    <LinkItem to={"books"}>books</LinkItem>
-                    <LinkItem to={"about"}>about us</LinkItem>
+                    <LinkItem to={"/books"}>books</LinkItem>
+                    <LinkItem to={"/about"}>about us</LinkItem>
                 </div>
+                
                 <div className="nav-btns flex items-center ml-[40em] gap-3">
                 <Link to={"/login"}><Button width={"fit"} isMainBtn={true}>login</Button></Link>
                     <Link to={"/signup"}><Button width={"fit"} isMainBtn={false}>sign up</Button></Link>

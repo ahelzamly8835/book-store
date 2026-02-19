@@ -1,14 +1,22 @@
-import React from 'react'
-import Navbar from '../components/Navbar/Navbar'
-import SearchBar from './SearchBar'
-import Header from './Header'
-
+import React from "react";
+import Header from "./Header";
+import Service from "./service";
+import BestSeller from "./BestSeller";
+import Recomended from "./Recomended";
+import FlashSale from "./FlashSale";
+import Footer from "../components/ui/Footer";
+import HeaderLogin from "./HeaderLogin";
 const HomeAfter = () => {
   return (
     <div>
-       <h1>HomeAfter</h1>
+      <HeaderLogin />
+      <Service />
+      <BestSeller />
+      <Recomended />
+      <FlashSale />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default HomeAfter
+export default HomeAfter;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { CiSearch } from "react-icons/ci";
 
 const SearchBar = () => {
@@ -30,8 +30,8 @@ const SearchBar = () => {
           className="outline-none w-full bg-transparent text-gray-700 text-sm md:text-base placeholder:text-gray-400"
           aria-label="Search books"
         />
-        
-        <button 
+
+        <button
           type="submit"
           className="
             cursor-pointer 
@@ -50,7 +50,7 @@ const SearchBar = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;
