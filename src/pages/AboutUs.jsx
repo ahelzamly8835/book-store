@@ -2,7 +2,7 @@ import React from "react";
 import HeaderLogin from "./HeaderLogin";
 import AboutMission from "./AboutMission";
 import AboutQuestions from "./AboutQuestions";
-import Service from "./service";
+import Service from "./Service";
 import Footer from "../components/ui/Footer";
 
 const AboutUs = () => {

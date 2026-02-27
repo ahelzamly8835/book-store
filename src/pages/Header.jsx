@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-      {/* 1. Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={BackgroundImage}
