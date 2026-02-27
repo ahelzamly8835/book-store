@@ -4,8 +4,19 @@ import userImg from "../assets/images/7098886df02b2521176bde95e31347ff1428d87f.j
 import { FiEdit3 } from "react-icons/fi";
 import { Formik, Form, Field } from "formik";
 import Footer from "../components/ui/Footer";
+import useAuthStore from "../store/authStore";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Profile = () => {
+  const logout = useAuthStore((state) => state.logout);
+const navigate = useNavigate();
+
+const handleLogout = () => {
+  logout();
+  toast.success("Logged out successfully");
+  navigate("/");
+};
   return (
     <div className="bg-[#F5F5F5] min-h-screen">
       <HeaderLogin showSearch={false} height="h-[300px]" showEdit={false} />
@@ -120,15 +131,22 @@ const Profile = () => {
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-mainColor transition-all"
                   />
                 </div>
+                <div className="pt-6 flex  gap-4">
+  <button
+    type="submit"
+    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-mainColor text-white py-4 rounded-lg font-bold shadow-lg hover:brightness-90 active:scale-95 transition-all"
+  >
+    Update information
+  </button>
 
-                <div className="pt-6  flex">
-                  <button
-                    type="submit"
-                    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-mainColor text-white py-4 rounded-lg font-bold shadow-lg hover:brightness-90 active:scale-95 transition-all"
-                  >
-                    Update information
-                  </button>
-                </div>
+  <button
+    type="button"
+    onClick={handleLogout}
+    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-red-500 text-white py-4 rounded-lg font-bold shadow-lg hover:bg-red-600 active:scale-95 transition-all"
+  >
+    Logout
+  </button>
+</div>
               </Form>
             )}
           </Formik>

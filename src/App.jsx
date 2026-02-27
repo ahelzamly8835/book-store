@@ -1,14 +1,28 @@
 import { BrowserRouter } from "react-router-dom";
 import RouterApp from "./routes/RouterApp";
-import LoginPage from "./pages/LoginPage";
-import Navbar from "./components/Navbar/Navbar";
-import SignupPage from "./pages/SignupPage";
-
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
-    return (
-      <BrowserRouter>
-        <RouterApp />
-      </BrowserRouter>
-    );
-  }
+  return (
+    <BrowserRouter>
+     <Toaster
+  position="top-center"
+  toastOptions={{
+    success: {
+      style: {
+        background: "#22c55e",
+        color: "#fff",
+      },
+    },
+    error: {
+      style: {
+        background: "#ef4444",
+        color: "#fff",
+      },
+    },
+  }}
+/>
+      <RouterApp />
+    </BrowserRouter>
+  );
+}

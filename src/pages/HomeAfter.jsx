@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import Service from "./service";
 import BestSeller from "./BestSeller";
 import Recomended from "./Recomended";

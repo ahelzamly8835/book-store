@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BackgroundImage from "../../src/assets/images/533643aa8db82414f48d43a992d009dda3961386.png";
 import userImg from "../../src/assets/images/7098886df02b2521176bde95e31347ff1428d87f.jpg";
 import { CiSearch } from "react-icons/ci";
@@ -8,6 +8,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { RiMenu2Line } from "react-icons/ri";
 
 const HeaderLogin = ({
   showSearch = true,
@@ -16,8 +17,13 @@ const HeaderLogin = ({
   height = "h-[500px] md:h-[600px]",
   showEdit = true,
 }) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className={`relative w-full ${height} overflow-hidden`}>
+
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
           src={BackgroundImage}
@@ -27,19 +33,39 @@ const HeaderLogin = ({
         <div className={`absolute inset-0 ${overlayColor}`}></div>
       </div>
 
-      <nav className="relative z-20 w-full bg-white/10  border-white/10">
-        <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      {/* NAV */}
+      <nav className="relative z-20 w-full bg-white/30 border-white/10">
+        <div className="container mx-auto px-2 md:px-6 py-3 flex items-center justify-between">
+
           <div className="flex items-center gap-10">
-            <NavbarLogo />
-            <div className="hidden xl:flex items-center gap-6">
+
+            {/* Logo Desktop */}
+            <div className="md:flex hidden">
+              <NavbarLogo />
+            </div>
+
+            {/* Mobile Menu Icon */}
+            <div
+              onClick={() => setIsOpen(!isOpen)}
+               className="md:hidden relative z-[1000] block text-3xl  text-white hover:text-mainColor duration-300 cursor-pointer"
+            >
+              <RiMenu2Line />
+            </div>
+
+            {/* Desktop Links */}
+            <div className="md:flex hidden items-center gap-6">
               <LinkItem to="/">home</LinkItem>
-              <LinkItem to="books">books</LinkItem>
+              <LinkItem to="/books">books</LinkItem>
               <LinkItem to="/about">about us</LinkItem>
             </div>
+
           </div>
 
+          {/* Right Side */}
           <div className="flex items-center gap-4 md:gap-8">
+
             <div className="flex items-center gap-5">
+
               <div className="relative cursor-pointer group">
                 <FaRegHeart className="text-white text-2xl md:text-3xl" />
                 <span className="absolute -top-1 -right-2 bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
@@ -47,16 +73,16 @@ const HeaderLogin = ({
                 </span>
               </div>
 
-              {/* Cart */}
               <div className="relative cursor-pointer group">
-                <MdOutlineShoppingCart className="text-white text-2xl md:text-3xl " />
+                <MdOutlineShoppingCart className="text-white text-2xl md:text-3xl" />
                 <span className="absolute -top-1 -right-2 bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
                   10
                 </span>
               </div>
+
             </div>
 
-            <div className="hidden sm:block h-10  bg-white/20"></div>
+            <div className="hidden sm:block h-10 bg-white/20"></div>
 
             <div className="flex items-center gap-3">
               <div className="hidden md:flex flex-col items-end">
@@ -72,20 +98,43 @@ const HeaderLogin = ({
                     className="w-full h-full object-cover"
                   />
                 </div>
-
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#3B2F4A] rounded-full"></span>
               </div>
+
               {showEdit && (
                 <Link to="/profile">
-                  <MdOutlineEdit className="text-white text-lg cursor-pointer absolute right-50 top-5 hover:text-white/70" />
+                  <MdOutlineEdit className="text-white hidden md:flex text-lg cursor-pointer absolute right-60 top-5 hover:text-white/70" />
                 </Link>
               )}
             </div>
+
           </div>
         </div>
       </nav>
 
-      {/* Content Area */}
+      {/* Mobile Dropdown */}
+      {isOpen && (
+  <div className="md:hidden fixed top-16 left- w-full z-[999] h-full ">
+    
+    <div className="absolute top-0 left-0  shadow-2xl bg-black/50 px-10 rounded-r-2xl flex items-center gap-8 py-4  ">
+      
+      <LinkItem to="/" onClick={() => setIsOpen(false)}>
+        home
+      </LinkItem>
+
+      <LinkItem to="/books" onClick={() => setIsOpen(false)}>
+        books
+      </LinkItem>
+
+      <LinkItem to="/about" onClick={() => setIsOpen(false)}>
+        about us
+      </LinkItem>
+
+    </div>
+
+  </div>
+)}
+      {/* Search Area */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 -mt-16">
         {showSearch && !customContent && (
           <div className="w-full max-w-[600px] bg-white rounded-full flex items-center shadow-2xl overflow-hidden focus-within:ring-2 focus-within:ring-mainColor transition-all">
@@ -104,6 +153,7 @@ const HeaderLogin = ({
           <div className="w-full animate-fadeIn">{customContent}</div>
         )}
       </div>
+
     </header>
   );
 };

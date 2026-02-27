@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import useAuthStore from "../store/authStore";
 import { useNavigate } from "react-router-dom";
-
+import toast from "react-hot-toast";
 const LoginPage = () => {
   const login = useAuthStore((state) => state.login);
   const navigate = useNavigate();
@@ -18,16 +18,20 @@ const LoginPage = () => {
   const handleLogin = async (values) => {
     try {
       const res = await axios.post("https://bookstore.eraasoft.pro/api/login", {
-        email: values.identifier, // بدل identifier
+        email: values.identifier, 
         password: values.password,
       });
 
       console.log(res.data);
 
-      // بما إن الـ API بيرجع email بس
+ 
       login({ email: res.data.data.email }, res.data.data.token);
 
-      navigate("/home-login");
+      toast.success("Login successful");
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (error) {
       console.log(error.response?.data);
       alert(error.response?.data?.message || "Login failed");
@@ -105,8 +109,6 @@ const LoginPage = () => {
                     </Link>
                   </div>
                 </div>
-                {/* <Link to="/home-login">
-          </Link> */}
                 <button
                   type="submit"
                   className="btn cursor-pointer bg-mainColor flex justify-center items-center mt-8 rounded-lg py-2.5 w-full text-white font-bold transition-opacity hover:opacity-90"
