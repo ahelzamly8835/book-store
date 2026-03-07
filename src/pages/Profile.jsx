@@ -10,13 +10,13 @@ import toast from "react-hot-toast";
 
 const Profile = () => {
   const logout = useAuthStore((state) => state.logout);
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const handleLogout = () => {
-  logout();
-  toast.success("Logged out successfully");
-  navigate("/");
-};
+  const handleLogout = () => {
+    logout();
+    toast.success("Logged out successfully");
+    navigate("/");
+  };
   return (
     <div className="bg-[#F5F5F5] min-h-screen">
       <HeaderLogin showSearch={false} height="h-[300px]" showEdit={false} />
@@ -132,21 +132,21 @@ const handleLogout = () => {
                   />
                 </div>
                 <div className="pt-6 flex  gap-4">
-  <button
-    type="submit"
-    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-mainColor text-white py-4 rounded-lg font-bold shadow-lg hover:brightness-90 active:scale-95 transition-all"
-  >
-    Update information
-  </button>
+                  <button
+                    type="submit"
+                    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-mainColor text-white py-4 rounded-lg font-bold shadow-lg hover:brightness-90 active:scale-95 transition-all"
+                  >
+                    Update information
+                  </button>
 
-  <button
-    type="button"
-    onClick={handleLogout}
-    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-red-500 text-white py-4 rounded-lg font-bold shadow-lg hover:bg-red-600 active:scale-95 transition-all"
-  >
-    Logout
-  </button>
-</div>
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="w-full mx-auto md:w-fit md:px-12 cursor-pointer bg-red-500 text-white py-4 rounded-lg font-bold shadow-lg hover:bg-red-600 active:scale-95 transition-all"
+                  >
+                    Logout
+                  </button>
+                </div>
               </Form>
             )}
           </Formik>

@@ -9,10 +9,12 @@ import { MdArrowBackIosNew } from "react-icons/md";
 export default function ForgetPasswordPage() {
   return (
     <div className="min-h-screen pt-10 md:pt-0 flex flex-col bg-[#F5F5F5]">
-      <button className="lg:hidden cursor-pointer flex items-center gap-2 ml-6">
-        <MdArrowBackIosNew />
-        Forget password
-      </button>
+      <Link to="/">
+        <button className="lg:hidden cursor-pointer flex items-center gap-2 ml-6">
+          <MdArrowBackIosNew />
+          Forget password
+        </button>
+      </Link>
       <Navbar />
       <div className="content justify-center items-center flex-col gap-16 mt-16 flex">
         <h1 className="text-mainColor font-semibold hidden md:flex">

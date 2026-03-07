@@ -1,6 +1,7 @@
 import React from "react";
 import { LuShoppingCart } from "react-icons/lu";
 import { IoMdHeartEmpty, IoMdStar, IoMdStarOutline } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const books = [
   {
@@ -38,14 +39,15 @@ const Recommended = () => {
             key={book.id}
             className="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
           >
-            <div className="flex justify-center items-center  p-6 sm:w-1/3 lg:w-2/5">
-              <img
-                src={book.img}
-                alt={book.title}
-                className="w-32 sm:w-full h-auto object-contain drop-shadow-xl"
-              />
+            <div className="flex justify-center items-center p-6 sm:w-1/3 lg:w-2/5">
+              <Link to={`/product/${book.id}`}>
+                <img
+                  src={book.img}
+                  alt={book.title}
+                  className="w-32 sm:w-full h-auto object-contain drop-shadow-xl"
+                />
+              </Link>
             </div>
-
             <div className="flex flex-col p-6 sm:w-2/3 lg:w-3/5">
               <h2 className="font-bold text-xl mb-1">{book.title}</h2>
               <p className="text-[#22222280] text-sm mb-4">

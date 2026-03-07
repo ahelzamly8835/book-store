@@ -18,13 +18,12 @@ const LoginPage = () => {
   const handleLogin = async (values) => {
     try {
       const res = await axios.post("https://bookstore.eraasoft.pro/api/login", {
-        email: values.identifier, 
+        email: values.identifier,
         password: values.password,
       });
 
       console.log(res.data);
 
- 
       login({ email: res.data.data.email }, res.data.data.token);
 
       toast.success("Login successful");
@@ -38,7 +37,7 @@ const LoginPage = () => {
     }
   };
 
-  const lgoinSchema = Yup.object({
+  const loginSchema = Yup.object({
     identifier: Yup.string().email().required(),
     password: Yup.string().required(),
   });
@@ -46,10 +45,12 @@ const LoginPage = () => {
   return (
     <>
       <div className="min-h-screen pt-10 md:pt-0 flex flex-col bg-[#F5F5F5]">
-        <button className="md:hidden cursor-pointer flex items-center gap-2 ml-6">
-          <MdArrowBackIosNew />
-          Log in
-        </button>
+        <Link to="/">
+          <button className="md:hidden cursor-pointer flex items-center gap-2 ml-6">
+            <MdArrowBackIosNew />
+            Log in
+          </button>
+        </Link>
         <Navbar />
         <div className="flex justify-center items-center px-4 md:py-10 py-8">
           <div className="form flex flex-col w-full max-w-xl">
@@ -58,7 +59,7 @@ const LoginPage = () => {
             </h1>
             <Formik
               initialValues={{ identifier: "", password: "" }}
-              validationSchema={lgoinSchema}
+              validationSchema={loginSchema}
               onSubmit={handleLogin}
             >
               <Form className="form flex flex-col w-full max-w-xl">
@@ -111,7 +112,7 @@ const LoginPage = () => {
                 </div>
                 <button
                   type="submit"
-                  className="btn cursor-pointer bg-mainColor flex justify-center items-center mt-8 rounded-lg py-2.5 w-full text-white font-bold transition-opacity hover:opacity-90"
+                  className="btn cursor-pointer hover:bg-[#8F0F58] duration-400 bg-mainColor flex justify-center items-center mt-8 rounded-lg py-2.5 w-full text-white font-bold "
                 >
                   Log in
                 </button>

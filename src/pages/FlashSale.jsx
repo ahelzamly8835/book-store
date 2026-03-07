@@ -2,7 +2,7 @@ import React from "react";
 import { LuShoppingCart } from "react-icons/lu";
 import { IoMdStar, IoMdStarOutline } from "react-icons/io";
 
-const FlashSale = () => {
+const FlashSale = ({ shoHeader = true }) => {
   const flashSaleBooks = [
     {
       id: 1,
@@ -28,17 +28,18 @@ const FlashSale = () => {
 
   return (
     <section className="bg-[#F5F5F5] py-12 md:py-20">
-      <div className="px-6 md:px-16 mb-12">
-        <h1 className="font-bold text-[#222222] text-2xl md:text-[26px] mb-4">
-          Flash Sale
-        </h1>
-        <p className="text-[#22222280] max-w-lg leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
-          ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada
-          leo.
-        </p>
-      </div>
-
+      {shoHeader && (
+        <div className="px-6 md:px-16 mb-12">
+          <h1 className="font-bold text-[#222222] text-2xl md:text-[26px] mb-4">
+            Flash Sale
+          </h1>
+          <p className="text-[#22222280] max-w-lg leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
+            ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada
+            leo.
+          </p>
+        </div>
+      )}
       <div className="px-6 md:px-16 grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-16">
         {flashSaleBooks.map((book) => (
           <div

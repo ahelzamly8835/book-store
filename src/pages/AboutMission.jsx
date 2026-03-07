@@ -20,7 +20,6 @@ const AboutMission = () => {
   return (
     <section className="py-12 md:py-20 bg-[#F5F5F5]">
       <div className="container mx-auto px-6 md:px-10">
-        {/* Title Section */}
         <div className="text-center mb-12 md:mb-20">
           <h1 className="font-bold text-3xl md:text-4xl text-[#222222] inline-block relative">
             Our Mission
@@ -28,7 +27,6 @@ const AboutMission = () => {
           </h1>
         </div>
 
-        {/* Grid Container: 1 col on mobile, 2 on tablet, 3 on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {missionItems.map((item, index) => (
             <div

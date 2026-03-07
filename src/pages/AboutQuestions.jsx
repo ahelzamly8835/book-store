@@ -23,7 +23,6 @@ const AboutQuestions = () => {
 
           <form className="space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
-              {/* Name Input */}
               <div className="relative flex-1">
                 <FaRegUser className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-lg" />
                 <input

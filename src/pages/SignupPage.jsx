@@ -56,10 +56,12 @@ const SignupPage = () => {
   return (
     <>
       <div className="min-h-screen pt-10 md:pt-0 flex flex-col bg-[#F5F5F5]">
-        <button className="lg:hidden cursor-pointer flex items-center gap-2 ml-6">
-          <MdArrowBackIosNew />
-          Create account
-        </button>
+        <Link to="/">
+          <button className="lg:hidden cursor-pointer flex items-center gap-2 ml-6">
+            <MdArrowBackIosNew />
+            Create account
+          </button>
+        </Link>
         <Navbar />
         <div className="flex justify-center items-center px-4 md:py-10 py-8">
           <Formik
@@ -177,7 +179,7 @@ const SignupPage = () => {
 
               <button
                 type="submit"
-                className="btn cursor-pointer bg-mainColor flex justify-center items-center mt-8 rounded-lg py-2.5 text-white font-bold transition-opacity hover:opacity-90"
+                className="btn cursor-pointer bg-mainColor hover:bg-[#8F0F58] duration-400 flex justify-center items-center mt-8 rounded-lg py-2.5 text-white font-bold "
               >
                 Sign Up
               </button>

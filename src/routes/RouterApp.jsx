@@ -11,36 +11,44 @@ import HomeAfter from "../pages/HomeAfter";
 import AboutUs from "../pages/AboutUs";
 import Profile from "../pages/Profile";
 import BookPage from "../components/BooksPage/BookPage";
+import ProductDetails from "../pages/ProductDetails";
 
 export default function RouterApp() {
-
   const token = useAuthStore((state) => state.token);
 
   return (
     <Routes>
+      <Route path="/" element={token ? <HomeAfter /> : <HomeBefore />} />
 
-      {/* الصفحة الرئيسية ذكية */}
-      <Route 
-        path="/" 
-        element={token ? <HomeAfter /> : <HomeBefore />} 
-      />
-
-      {/* Auth */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/add-code" element={<AddCodePage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/forget-password" element={<ForgetPasswordPage />} />
-
-      <Route path="/about" element={<ProtectedRoute> <AboutUs /> </ProtectedRoute>} />
-      <Route path="/books" element={<ProtectedRoute> <BookPage /></ProtectedRoute> } />
-
-
-      <Route 
-        path="/profile" 
-        element={token ? <Profile /> : <Navigate to="/login" />} 
+      <Route path="/product/:id" element={<ProductDetails />} />
+      <Route
+        path="/about"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <AboutUs />{" "}
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/books"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <BookPage />
+          </ProtectedRoute>
+        }
       />
 
+      <Route
+        path="/profile"
+        element={token ? <Profile /> : <Navigate to="/login" />}
+      />
     </Routes>
   );
 }

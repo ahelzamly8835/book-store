@@ -5,7 +5,6 @@ import { RiLoopLeftLine } from "react-icons/ri";
 import { MdOutlineSupportAgent } from "react-icons/md";
 
 const Service = () => {
-  // Service data array to keep the JSX clean
   const services = [
     {
       icon: <FaShippingFast />,

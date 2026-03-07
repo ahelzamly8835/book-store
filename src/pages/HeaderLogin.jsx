@@ -44,7 +44,6 @@ const HeaderLogin = ({
               <RiMenu2Line />
             </div>
 
-            {/* Desktop Links */}
             <div className="md:flex hidden items-center gap-6">
               <LinkItem to="/">home</LinkItem>
               <LinkItem to="/books">books</LinkItem>
@@ -55,14 +54,14 @@ const HeaderLogin = ({
           <div className="flex items-center gap-4 md:gap-8">
             <div className="flex items-center gap-5">
               <div className="relative cursor-pointer group">
-                <FaRegHeart className="text-white text-2xl md:text-3xl" />
-                <span className="absolute -top-1 -right-2 bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
+                <FaRegHeart className="text-white text-2xl md:text-4xl hover:text-[#EAA451] duration-300" />
+                <span className="absolute -top-1 -right-2  bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
                   12
                 </span>
               </div>
 
               <div className="relative cursor-pointer group">
-                <MdOutlineShoppingCart className="text-white text-2xl md:text-3xl" />
+                <MdOutlineShoppingCart className="text-white text-2xl md:text-4xl hover:text-[#EAA451] duration-300" />
                 <span className="absolute -top-1 -right-2 bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
                   10
                 </span>
@@ -90,7 +89,7 @@ const HeaderLogin = ({
 
               {showEdit && (
                 <Link to="/profile">
-                  <MdOutlineEdit className="text-white hidden md:flex text-lg cursor-pointer absolute right-60 top-5 hover:text-white/70" />
+                  <MdOutlineEdit className="text-white flex md:text-lg text-xl cursor-pointer duration-200  right-3 bottom-8 absolute md:right-58 md:top-5 hover:text-[#EAA451]" />
                 </Link>
               )}
             </div>

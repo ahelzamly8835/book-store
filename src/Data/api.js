@@ -13,16 +13,14 @@ export const categories = [
   { id: 6, name: "Fantasy", count: 47 },
   { id: 7, name: "Self Help", count: 163 },
   { id: 8, name: "Cooking", count: 211 },
-  { id: 9, name: "Sports", count: 92, price:50 },
+  { id: 9, name: "Sports", count: 92, price: 50 },
 ];
-export const books = categories.flatMap(category => {
-
+export const books = categories.flatMap((category) => {
   // عدد عشوائي من 2 إلى 6 كتب لكل كاتيجوري
-  const booksCount = Math.floor(Math.random() * 5) + 2; 
+  const booksCount = Math.floor(Math.random() * 5) + 2;
   // 2,3,4,5,6
 
   return Array.from({ length: booksCount }).map((_, index) => {
-
     const price = Math.floor(Math.random() * 80) + 20;
     const discount = Math.floor(Math.random() * 50);
     const finalPrice = (price - (price * discount) / 100).toFixed(2);

@@ -7,14 +7,12 @@ const useAuthStore = create(
       user: null,
       token: null,
 
-      login: (userData, token) =>
-        set({ user: userData, token }),
+      login: (userData, token) => set({ user: userData, token }),
 
-      logout: () =>
-        set({ user: null, token: null }),
+      logout: () => set({ user: null, token: null }),
     }),
     {
-      name: "auth-storage", // اسم التخزين في localStorage
+      name: "auth-storage",
     }
   )
 );
