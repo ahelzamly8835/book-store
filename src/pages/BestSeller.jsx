@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const BestSeller = () => {
   return (
@@ -52,11 +53,13 @@ const BestSeller = () => {
         </Swiper>
       </div>
 
-      <div className="btn flex pb-16 md:pb-20">
-        <button className="bg-mainColor text-white px-8 py-3 outline-none cursor-pointer mx-auto rounded-xl font-semibold hover:bg-opacity-90 transition shadow-lg">
-          Shop now
-        </button>
-      </div>
+      <Link to="/books">
+        <div className="btn flex pb-16 md:pb-20">
+          <button className="bg-mainColor text-white px-8 py-3 outline-none cursor-pointer mx-auto rounded-xl font-semibold hover:bg-opacity-90 transition shadow-lg">
+            Shop now
+          </button>
+        </div>
+      </Link>
     </div>
   );
 };

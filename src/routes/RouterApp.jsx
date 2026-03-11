@@ -12,6 +12,9 @@ import AboutUs from "../pages/AboutUs";
 import Profile from "../pages/Profile";
 import BookPage from "../components/BooksPage/BookPage";
 import ProductDetails from "../pages/ProductDetails";
+import MyCart from "../pages/MyCart";
+import WishlistPage from "../pages/WishlistPage";
+import CheckOut from "../pages/CheckOut";
 
 export default function RouterApp() {
   const token = useAuthStore((state) => state.token);
@@ -26,6 +29,9 @@ export default function RouterApp() {
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/forget-password" element={<ForgetPasswordPage />} />
       <Route path="/product/:id" element={<ProductDetails />} />
+      <Route path="/my-cart" element={<MyCart />} />
+      <Route path="/wishlist" element={<WishlistPage />} />
+      <Route path="/checkout" element={<CheckOut />} />
       <Route
         path="/about"
         element={

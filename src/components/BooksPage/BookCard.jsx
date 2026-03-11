@@ -2,7 +2,14 @@ import { FaStar } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useCartStore from "../../store/cartStore";
+import useWishlistStore from "../../store/wishlistStore";
+import toast from "react-hot-toast";
+
 export default function BookCard({ book }) {
+  const addToCart = useCartStore((state) => state.addToCart);
+  const addToWishlist = useWishlistStore((state) => state.addToWishlist);
+
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
       <FaStar
@@ -30,6 +37,7 @@ export default function BookCard({ book }) {
             <h2 className="text-lg font-bold text-gray-800 leading-tight">
               {book.title}
             </h2>
+
             <span className="text-xs border border-yellow-400 text-yellow-500 px-2 py-1 rounded-md whitespace-nowrap">
               {book.discount}% Discount
             </span>
@@ -43,6 +51,7 @@ export default function BookCard({ book }) {
             <div className="flex text-yellow-400">
               {renderStars(book.rating)}
             </div>
+
             <span className="text-sm text-gray-400">
               ({book.rating} Rating)
             </span>
@@ -53,6 +62,7 @@ export default function BookCard({ book }) {
               <p className="text-xs uppercase tracking-wider">Author</p>
               <p className="text-gray-800 font-medium">{book.author}</p>
             </div>
+
             <div>
               <p className="text-xs uppercase tracking-wider">Year</p>
               <p className="text-gray-800 font-medium">{book.year}</p>
@@ -64,11 +74,24 @@ export default function BookCard({ book }) {
           <p className="text-xl font-bold text-gray-800">${book.finalPrice}</p>
 
           <div className="flex gap-2">
-            <button className="bg-mainColor cursor-pointer text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:opacity-90 transition text-sm">
-              <span className="hidden sm:inline">Add To Card</span>{" "}
+            <button
+              onClick={() => {
+                addToCart(book);
+                toast.success("Book added to cart");
+              }}
+              className="bg-mainColor cursor-pointer text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:opacity-90 transition text-sm"
+            >
+              <span className="hidden sm:inline">Add To Cart</span>
               <FaShoppingCart />
             </button>
-            <button className="border cursor-pointer border-mainColor text-mainColor p-2 rounded-lg hover:bg-mainColor hover:text-white transition">
+
+            <button
+              onClick={() => {
+                addToWishlist(book);
+                toast.success("Added to wishlist ❤️");
+              }}
+              className="border cursor-pointer border-mainColor text-mainColor p-2 rounded-lg hover:bg-mainColor hover:text-white transition"
+            >
               <FiHeart />
             </button>
           </div>

@@ -9,7 +9,8 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { RiMenu2Line } from "react-icons/ri";
-
+import useCartStore from "../store/cartStore";
+import useWishlistStore from "../store/wishlistStore";
 const HeaderLogin = ({
   showSearch = true,
   customContent = null,
@@ -18,7 +19,13 @@ const HeaderLogin = ({
   showEdit = true,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const cart = useCartStore((state) => state.cart);
+  const cartCount = cart.reduce(
+    (total, item) => total + (item.quantity || 1),
+    0
+  );
+  const wishlist = useWishlistStore((state) => state.wishlist);
+  const wishlistCount = wishlist.length;
   return (
     <header className={`relative w-full ${height} overflow-hidden`}>
       <div className="absolute inset-0 z-0">
@@ -33,7 +40,7 @@ const HeaderLogin = ({
       <nav className="relative z-20 w-full bg-white/30 border-white/10">
         <div className="container mx-auto px-2 md:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-10">
-            <div className="md:flex hidden">
+            <div className="lg:flex hidden">
               <NavbarLogo />
             </div>
 
@@ -53,19 +60,22 @@ const HeaderLogin = ({
 
           <div className="flex items-center gap-4 md:gap-8">
             <div className="flex items-center gap-5">
-              <div className="relative cursor-pointer group">
-                <FaRegHeart className="text-white text-2xl md:text-4xl hover:text-[#EAA451] duration-300" />
-                <span className="absolute -top-1 -right-2  bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
-                  12
-                </span>
-              </div>
-
-              <div className="relative cursor-pointer group">
-                <MdOutlineShoppingCart className="text-white text-2xl md:text-4xl hover:text-[#EAA451] duration-300" />
-                <span className="absolute -top-1 -right-2 bg-mainColor text-white text-[8px] font-bold px-1.5 py-1 rounded-full border border-white">
-                  10
-                </span>
-              </div>
+              <Link to="/wishlist">
+                <div className="relative cursor-pointer group">
+                  <FaRegHeart className="text-white text-2xl md:text-4xl hover:text-[#EAA451] duration-300" />
+                  <span className="absolute -top-1 -right-2 bg-mainColor text-white font-bold min-w-[18px] h-[18px] md:min-w-[22px] md:h-[22px]  flex items-center justify-center text-[10px] md:text-xs  rounded-full border border-white">
+                    {wishlistCount}
+                  </span>
+                </div>
+              </Link>
+              <Link to="/my-cart">
+                <div className="relative cursor-pointer group">
+                  <MdOutlineShoppingCart className="text-white text-2xl md:text-4xl hover:text-[#EAA451] duration-300" />
+                  <span className="absolute -top-1 -right-2 bg-mainColor text-white font-bold min-w-[18px] h-[18px] md:min-w-[22px] md:h-[22px]  flex items-center justify-center text-[10px] md:text-xs  rounded-full border border-white">
+                    {cartCount}
+                  </span>
+                </div>
+              </Link>
             </div>
 
             <div className="hidden sm:block h-10 bg-white/20"></div>
@@ -89,7 +99,7 @@ const HeaderLogin = ({
 
               {showEdit && (
                 <Link to="/profile">
-                  <MdOutlineEdit className="text-white flex md:text-lg text-xl cursor-pointer duration-200  right-3 bottom-8 absolute md:right-58 md:top-5 hover:text-[#EAA451]" />
+                  <MdOutlineEdit className="text-white flex 2xl:text-lg text-xl cursor-pointer duration-200 right-3 bottom-8 absolute 2xl:right-60 2xl:top-5 lg:right-50 md:right-18 hover:text-[#EAA451]" />
                 </Link>
               )}
             </div>

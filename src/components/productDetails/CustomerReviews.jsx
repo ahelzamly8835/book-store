@@ -29,11 +29,25 @@ const reviews = [
     comment:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est.",
   },
+  {
+    name: "John Smith",
+    date: "28/07/2024",
+    rating: 5,
+    comment:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est.",
+  },
+  {
+    name: "John Smith",
+    date: "28/07/2024",
+    rating: 5,
+    comment:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est.",
+  },
 ];
 
 const CustomerReviews = () => {
   return (
-    <div className="grid grid-cols-2 gap-6 pb-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-16">
       {reviews.map((review, index) => (
         <div
           key={index}

@@ -5,23 +5,23 @@ import { Toaster } from "react-hot-toast";
 export default function App() {
   return (
     <BrowserRouter>
-     <Toaster
-  position="top-center"
-  toastOptions={{
-    success: {
-      style: {
-        background: "#22c55e",
-        color: "#fff",
-      },
-    },
-    error: {
-      style: {
-        background: "#ef4444",
-        color: "#fff",
-      },
-    },
-  }}
-/>
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          success: {
+            style: {
+              background: "#22c55e",
+              color: "#fff",
+            },
+          },
+          error: {
+            style: {
+              background: "#ef4444",
+              color: "#fff",
+            },
+          },
+        }}
+      />
       <RouterApp />
     </BrowserRouter>
   );
