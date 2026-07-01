@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import useAuthStore from "../store/authStore";
+// import useAuthStore from "../store/authStore";
 import ProtectedRoute from "../components/ProtectedRoute";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
@@ -17,7 +17,7 @@ import WishlistPage from "../pages/WishlistPage";
 import CheckOut from "../pages/CheckOut";
 
 export default function RouterApp() {
-  const token = useAuthStore((state) => state.token);
+const token = true;
 
   return (
     <Routes>
