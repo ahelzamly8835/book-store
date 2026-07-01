@@ -5,37 +5,37 @@ import { FcGoogle } from "react-icons/fc";
 import { MdArrowBackIosNew } from "react-icons/md";
 import Footer from "../components/ui/Footer";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-// import axios from "axios";
+import axios from "axios";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-// import useAuthStore from "../store/authStore";
-// import { useNavigate } from "react-router-dom";
-// import toast from "react-hot-toast";
+import useAuthStore from "../store/authStore";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 const LoginPage = () => {
-  // const login = useAuthStore((state) => state.login);
-  // const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
+  const navigate = useNavigate();
 
-  // const handleLogin = async (values) => {
-  //   try {
-  //     const res = await axios.post("https://bookstore.eraasoft.pro/api/login", {
-  //       email: values.identifier,
-  //       password: values.password,
-  //     });
+  const handleLogin = async (values) => {
+    try {
+      const res = await axios.post("https://bookstore.eraasoft.pro/api/login", {
+        email: values.identifier,
+        password: values.password,
+      });
 
-  //     console.log(res.data);
+      console.log(res.data);
 
-  //     login({ email: res.data.data.email }, res.data.data.token);
+      login({ email: res.data.data.email }, res.data.data.token);
 
-  //     toast.success("Login successful");
+      toast.success("Login successful");
 
-  //     setTimeout(() => {
-  //       navigate("/");
-  //     }, 1000);
-  //   } catch (error) {
-  //     console.log(error.response?.data);
-  //     alert(error.response?.data?.message || "Login failed");
-  //   }
-  // };
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } catch (error) {
+      console.log(error.response?.data);
+      alert(error.response?.data?.message || "Login failed");
+    }
+  };
 
   const loginSchema = Yup.object({
     identifier: Yup.string().email().required(),
@@ -60,7 +60,7 @@ const LoginPage = () => {
             <Formik
               initialValues={{ identifier: "", password: "" }}
               validationSchema={loginSchema}
-              // onSubmit={handleLogin}
+              onSubmit={handleLogin}
             >
               <Form className="form flex flex-col w-full max-w-xl">
                 <label className="text-[#222222] my-2 mt-20 text-[18px] ml-1">
