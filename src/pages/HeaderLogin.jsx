@@ -99,7 +99,7 @@ const HeaderLogin = ({
 
               {showEdit && (
                 <Link to="/profile">
-                  <MdOutlineEdit className="text-white flex 2xl:text-lg text-xl cursor-pointer duration-200 right-3 bottom-8 absolute 2xl:right-60 2xl:top-5 lg:right-50 md:right-18 hover:text-[#EAA451]" />
+                  <MdOutlineEdit className="text-white flex 2xl:text-lg text-xl cursor-pointer duration-200 right-3 bottom-8 absolute 2xl:right-60 2xl:top-5 xl:right-52 md:right-18 hover:text-[#EAA451]" />
                 </Link>
               )}
             </div>

@@ -94,7 +94,7 @@ export default function CheckoutPage() {
 
             <textarea
               placeholder="Add note"
-              className="border border-[#22222233] rounded-lg p-4 w-full h-[25em]"
+              className="border border-[#22222233] rounded-lg p-4 xl:h-[20em] w-full h-[25em]"
             />
           </div>
         </div>
@@ -173,7 +173,9 @@ export default function CheckoutPage() {
           </button>
         </div>
       </div>
+      <div className="xl:mt-6">
       <Footer />
+      </div>
     </div>
   );
 }
